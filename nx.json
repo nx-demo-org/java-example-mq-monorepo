@@ -1,0 +1,13 @@
+{
+  "installation": {
+    "version": "22.3.3",
+    "plugins": {
+      "@nx/maven": "22.3.3"
+    }
+  },
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "plugins": [
+    "@nx/maven"
+  ],
+  "nxCloudId": "6965ab39f32b61c468b92b0d"
+}

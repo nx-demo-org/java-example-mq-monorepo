@@ -1,0 +1,33 @@
+name: Main - Build and Test
+
+on: 
+  push:
+      branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+
+      - name: Build and test
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_MAIN_SECRET }}
+        run: ./nx run-many --target=verify -ntp
