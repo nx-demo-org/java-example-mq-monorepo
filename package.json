@@ -1,0 +1,7 @@
+{
+  "name": "java-example-mq-monorepo",
+  "devDependencies": {
+    "@nx/maven": "22.4.0-beta.4",
+    "nx": "0.0.0-pr-33695-c43288d"
+  }
+}

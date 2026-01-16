@@ -9,5 +9,14 @@
   "plugins": [
     "@nx/maven"
   ],
+  "targetDefaults": {
+    "spring-boot:run": {
+      "dependsOn": ["install", "com.example:event-producer:exec:exec@rabbitmq"]
+    },
+    "exec:exec@rabbitmq": {
+      "continuous": true,
+      "cache": false
+    }
+  },
   "nxCloudId": "696688afcd75e20b141060ca"
 }
