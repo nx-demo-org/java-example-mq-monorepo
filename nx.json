@@ -1,13 +1,22 @@
 {
   "installation": {
-    "version": "22.3.3",
+    "version": "0.0.0-pr-33695-c43288d",
     "plugins": {
-      "@nx/maven": "22.3.3"
+      "@nx/maven": "22.4.0-beta.4"
     }
   },
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "plugins": [
     "@nx/maven"
   ],
+  "targetDefaults": {
+    "spring-boot:run": {
+      "dependsOn": ["install", "com.example:event-producer:exec:exec@rabbitmq"]
+    },
+    "exec:exec@rabbitmq": {
+      "continuous": true,
+      "cache": false
+    }
+  },
   "nxCloudId": "696688afcd75e20b141060ca"
 }
